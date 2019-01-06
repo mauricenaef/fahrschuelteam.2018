@@ -36,6 +36,24 @@
     }
 }
 
-.accordion-toggle {cursor: pointer;}
-.accordion-content {display: none;}
-.accordion-content.default {display: block;}
+.accordion-toggle { 
+    cursor: pointer; 
+    padding-right: 2.5rem;
+    font-size: rem-calc(14);
+    position: relative;
+    &:after {
+        content: "+";
+        position: absolute;
+        right: 1rem;
+        top: 0;
+        font-size: rem-calc(18);
+    }
+    &.open {
+        &:after {
+            content: "-"
+        }
+    }
+}
+.accordion-content {
+    display: none;
+}

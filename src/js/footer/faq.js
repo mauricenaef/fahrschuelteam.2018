@@ -24,20 +24,15 @@
                 }
             });
         });
-
-        
-
     });
+
+    // When Ajax ready
     $(document).ajaxComplete(function(){
         // Accordion
         $('#card-content').find('.accordion-toggle').on( "click", function(){
-
-            console.log('here');
-            //Expand or collapse this panel
-            $(this).next().slideToggle('fast');
-      
+            $(this).next().slideToggle('fast').prev().toggleClass('open');      
             //Hide the other panels
-            $(".accordion-content").not($(this).next()).slideUp('fast');
+            $(".accordion-content").not($(this).next()).slideUp('fast').prev().removeClass('open');
       
         });
     })
