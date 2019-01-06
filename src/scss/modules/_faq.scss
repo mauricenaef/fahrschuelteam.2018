@@ -15,7 +15,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        top: 0;
+        top: 20%;
         left: 0;
         right: 0;
         display: flex;
@@ -38,9 +38,12 @@
 
 .accordion-toggle { 
     cursor: pointer; 
-    padding-right: 2.5rem;
+    padding: 0 2.5rem 0 .5rem;
     font-size: rem-calc(14);
     position: relative;
+    &:hover, &:focus {
+        opacity: .7;
+    }
     &:after {
         content: "+";
         position: absolute;
@@ -56,4 +59,5 @@
 }
 .accordion-content {
     display: none;
+    padding: 0 .5rem;
 }

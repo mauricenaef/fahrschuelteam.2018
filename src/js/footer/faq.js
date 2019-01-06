@@ -1,10 +1,12 @@
 // jQuery and before image loaded
+
 ( function( $ ) {
 	$(document).ready(function () {
 
         let select = $('#select-faq');
         let cardcontent = $('#card-content');
         let loading = $('#loading-faq');
+        
 
         select.on('change', function(event) {
 
@@ -15,7 +17,10 @@
             $.ajax({
                 type:       'POST',
                 url:        php_vars.ajaxurl,
-                data:       { "action": "fahrschuelteam_faq_ajax", term: term_id},
+                data:       { 
+                    action: "fahrschuelteam_faq_ajax", 
+                    term: term_id
+                },
                 success:    function(response) {
                     cardcontent.removeClass('fadeout');
                     cardcontent.html(response);
@@ -23,7 +28,7 @@
                     return false;
                 }
             });
-        });
+        }).change();
     });
 
     // When Ajax ready

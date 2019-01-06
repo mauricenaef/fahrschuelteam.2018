@@ -130,8 +130,6 @@ function fahrschuelteam_faq_ajax() {
 	the_content();
 	echo "</div>";
 	endforeach;
-	} else {
-		echo 'no post';
 	}
 
 	wp_reset_postdata(); 
@@ -179,7 +177,7 @@ function fahrschuelteam_faq( $datahash = null ) {
 									'orderby'         => 'NAME', // Order the items in the dropdown menu by their name.
 									'taxonomy'        => 'faq_kategorie', // Only include posts with the taxonomy of 'tools'.
 									'name'            => 'select-faq', // Change this to the
-									'show_option_all' => 'Wähle eine FAQ Kategorie', // Text the dropdown will display when none of the options have been selected.
+									//'show_option_all' => 'Wähle eine FAQ Kategorie', // Text the dropdown will display when none of the options have been selected.
 									//'selected'        => km_get_selected_taxonomy_dropdown_term(), // Set which option in the dropdown menu is the currently selected one.
 								) );
 							?>
