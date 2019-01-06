@@ -243,6 +243,7 @@ add_action( 'wp_enqueue_scripts', 'fahrschuelteam_scripts_and_styles' );
 function wp_localize_icon_vars(){
     $svg_url = get_bloginfo('template_url') . '/images/symbol-defs.svg';
     $svglocalstorage = array(
+		'ajaxurl' 		=> admin_url( 'admin-ajax.php' ),
     	'url'			=> get_bloginfo('template_url'),
     	'svg_url' 		=> $svg_url,
     	'timestamp'		=> filemtime( TEMPLATEPATH . '/images/symbol-defs.svg' )

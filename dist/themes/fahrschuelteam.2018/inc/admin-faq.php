@@ -97,6 +97,51 @@ function custom_taxonomy_faq_kategorie() {
 }
 add_action( 'init', 'custom_taxonomy_faq_kategorie', 0 );
 
+
+// Ajax load
+
+add_action('wp_ajax_fahrschuelteam_faq_ajax', 'fahrschuelteam_faq_ajax');
+add_action('wp_ajax_nopriv_fahrschuelteam_faq_ajax', 'fahrschuelteam_faq_ajax');
+
+function fahrschuelteam_faq_ajax() {
+	$term_id = $_POST[ 'term' ];
+    $args = array (
+		'term' => $term_id,
+		'post_type' => 'faq',
+        'posts_per_page' => -1,
+        'order' => 'DESC',
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'faq_kategorie',
+                'field'    => 'id',
+            	'terms'    => $term_id,
+                'operator' => 'IN'
+                )
+            )
+        );
+
+    global $post;
+    $custom_posts = get_posts( $args );
+	ob_start (); 
+	if($custom_posts) {
+	foreach($custom_posts as $post) : setup_postdata($post);
+	the_title('<h6>','</h6>');
+	the_content();
+	endforeach;
+	} else {
+		echo 'no post';
+	}
+
+	wp_reset_postdata(); 
+    $response = ob_get_contents();
+	
+	ob_end_clean();
+	
+	echo $response;
+	
+    die(1);
+}
+
 function fahrschuelteam_faq( $datahash = null ) {
     global $post;
 
@@ -126,27 +171,24 @@ function fahrschuelteam_faq( $datahash = null ) {
                         </div>
                         <div class="card-content shadow">
 							<?php 
-							svg_icon('search'); 
+							// Create and display the dropdown menu.
+							wp_dropdown_categories(
+								array(
+									'orderby'         => 'NAME', // Order the items in the dropdown menu by their name.
+									'taxonomy'        => 'faq_kategorie', // Only include posts with the taxonomy of 'tools'.
+									'name'            => 'select-faq', // Change this to the
+									'show_option_all' => 'Wähle eine FAQ Kategorie', // Text the dropdown will display when none of the options have been selected.
+									//'selected'        => km_get_selected_taxonomy_dropdown_term(), // Set which option in the dropdown menu is the currently selected one.
+								) );
 							?>
-							<div id="card-content" >
-							<?php
-								$args = array(
-									'numberposts'	=> 6,
-									'post_type'		=> 'faq',
-									'orderby' 		=> 'menu_order', 
-									'order' 		=> 'ASC', 
-								);
-								$custom_posts = get_posts($args);
-								foreach($custom_posts as $post) : setup_postdata($post);
-
-								the_title('<h6>','</h6>');
-								the_content();
-								endforeach;
-							?>
+							<div id="card-container"  class="card-container">
+								<div id="loading-faq" class="loading-container">
+									<img src="<?php bloginfo( 'template_url' ) ?>/images/loading-dark.svg">
+									<p class="element-padding text-center"><small>FAQ werden geladen ...</small></p>
+								</div>
+								<div id="card-content"></div>
 							</div>
-                            
-                            
-                            
+
                         </div>
                     </div>
                 </div>
