@@ -12,8 +12,6 @@
             cardcontent.addClass('fadeout');
             let term_id = this.value;
             
-            console.log(term_id);
-
             $.ajax({
                 type:       'POST',
                 url:        php_vars.ajaxurl,
@@ -27,5 +25,20 @@
             });
         });
 
-	});
+        
+
+    });
+    $(document).ajaxComplete(function(){
+        // Accordion
+        $('#card-content').find('.accordion-toggle').on( "click", function(){
+
+            console.log('here');
+            //Expand or collapse this panel
+            $(this).next().slideToggle('fast');
+      
+            //Hide the other panels
+            $(".accordion-content").not($(this).next()).slideUp('fast');
+      
+        });
+    })
 } )( jQuery );

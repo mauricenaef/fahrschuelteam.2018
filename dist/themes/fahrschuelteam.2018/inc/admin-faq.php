@@ -125,8 +125,10 @@ function fahrschuelteam_faq_ajax() {
 	ob_start (); 
 	if($custom_posts) {
 	foreach($custom_posts as $post) : setup_postdata($post);
-	the_title('<h6>','</h6>');
+	the_title('<h6 class="accordion-toggle">','</h6>');
+	echo "<div class='accordion-content'>";
 	the_content();
+	echo "</div>";
 	endforeach;
 	} else {
 		echo 'no post';
