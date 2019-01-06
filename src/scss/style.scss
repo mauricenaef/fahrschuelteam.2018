@@ -1,0 +1,78 @@
+@charset 'utf-8';
+/*!  
+Theme Name: fahrschuelteam 2018
+Theme URI: https://fahrschuelteam.ch
+Version: 1.0.0
+Description: Custom Theme entwickelt von <a href="https://mauricenaef.ch">MAURICE NAEF webdesigner</a> für den exklusiven gebrauch dieser Seite.
+Author: MAURICE NAEF webdesigner
+Author URI: https://mauricenaef.ch
+Tags: 
+
+	Copyright: (c) 2007-2017 MAURICE NAEF webdesigner.
+	Lizenz: GNU General Public License v2.0
+	License URI: http://www.gnu.org/licenses/gpl-2.0.html
+	AGB Link: https://mauricenaef.ch/agb
+
+*/
+@import 'settings';
+@import 'mixins';
+@import 'utils';
+
+@import '../../node_modules/foundation-sites/scss/foundation';
+
+@include foundation-global-styles;
+@include foundation-xy-grid-classes;
+@include foundation-flex-classes;
+@include foundation-typography;
+@include foundation-forms;
+@include foundation-button;
+@include foundation-badge;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-menu;
+@include foundation-responsive-embed;
+@include foundation-label;
+@include foundation-media-object;
+@include foundation-pagination;
+@include foundation-table;
+@include foundation-visibility-classes;
+
+
+@import 'layout/header';
+@import 'layout/base';
+@import 'layout/footer';
+
+@import 'modules/about';
+@import 'modules/accesability';
+@import 'modules/typography';
+@import 'modules/buttons';
+@import 'modules/navigation';
+@import 'modules/hamburger';
+@import 'modules/event';
+@import 'modules/icons';
+@import 'modules/embeds';
+@import 'modules/forms';
+@import 'modules/form-gravity';
+@import 'modules/form-gravity-progress';
+@import 'modules/intro';
+@import 'modules/sponsoren';
+@import 'modules/testimonial';
+@import 'modules/angebot';
+@import 'modules/bundles';
+@import 'modules/cards';
+
+@import 'vendor/owlcarousel';
+@import 'vendor/slick';
+@import 'vendor/lightgallery';
+
+
+
+/*
+PRINT STYLESHEET
+Feel free to customize this. Remember to add things that won"t make
+sense to print at the bottom. Things like nav, ads, and forms should
+be set to display none.
+*/
+@media print {
+	@import 'print';
+}

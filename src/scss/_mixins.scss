@@ -1,0 +1,159 @@
+/**
+ * Mixins & Constants Stylesheet
+ */
+
+// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+%image-replacement {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+%visually-hidden {
+    position: absolute;
+    width: 1px; /* Setting this to 0 make it invisible for VoiceOver */
+    height: 1px; /* Setting this to 0 make it invisible for VoiceOver */
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;    
+}
+
+%trunc {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+//TRIANGEL
+@mixin css-arrow( $arrow-position, $arrow-color, $arrow-size ) {
+    &:after {
+      position: absolute;
+      border: solid transparent;
+      content: " ";
+      top: auto;
+      left: auto;
+      height: 0;
+      width: 0;
+      margin: 0;
+      border-color: transparent;
+      border-width: $arrow-size;
+      pointer-events: none;
+    }
+    @if $arrow-position == "top" {
+      &:after {
+        bottom: 100%;
+        border-bottom-color: $arrow-color;
+        margin-left: (-$arrow-size);
+        left: 50%;
+      }
+    }
+    @if $arrow-position == "right" {
+      &:after {
+        left: 100%;
+        border-left-color: $arrow-color;
+        margin-top: (-$arrow-size);
+        top: 50%;
+      }
+    }
+    @if $arrow-position == "bottom" {
+      &:after {
+        top: 100%;
+        border-top-color: $arrow-color;
+        margin-left: (-$arrow-size);
+        left: 50%;
+      }
+    }
+    @if $arrow-position == "left" {
+      &:after {
+        right: 100%;
+        border-right-color: $arrow-color;
+        margin-top: (-$arrow-size);
+        top: 50%;
+      }
+    }
+  }
+
+//TRANSITION
+@mixin transition($transition...) {
+  // defining prefixes so we can use them in mixins below
+  $prefixes:      ("-webkit", "-ms", "-o",  "");
+  @each $prefix in $prefixes {
+    #{$prefix}-transition: $transition;
+  }
+
+  transition: $transition;
+}
+
+// CSS3 GRADIENTS
+// @include css-gradient(#dfdfdf,#f8f8f8); 
+@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+  background-color: $to;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+  background-image: -webkit-linear-gradient(top, $from, $to);
+  background-image: -moz-linear-gradient(top, $from, $to);
+  background-image: -o-linear-gradient(top, $from, $to);
+  background-image: linear-gradient(to bottom, $from, $to);
+}
+
+
+// Font sizing mixin
+// @link https://github.com/csswizardry/inuit.css/blob/master/generic/_mixins.scss [props]
+// @example
+//@include form-font-size(10px);
+@mixin form-font-size($font-size) {
+  font-size: $font-size;
+  font-size: ($font-size / $input-font-size) * 1rem;
+}
+
+// Micro clearfix mixin
+// @link http://www.css-101.org/articles/clearfix/latest-new-clearfix-so-far.php [props]
+// @example
+// @include form-clearfix;
+@mixin form-clearfix {
+  &::after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+}
+
+
+// Spacing mixin
+// @link https://twitter.com/HugoGiraudel [props]
+// @example
+// @include form-spacing(padding, 0 $form-space auto);
+@mixin form-spacing($spacing-type, $args) {
+  $fallback: ();
+  $regular: ();
+
+  @each $value in $args {
+    @if type-of($value) == 'number' and unit($value) == 'px' {
+      $fallback: append($fallback, $value);
+      $regular: append($regular, $value / $input-font-size * 1rem);
+    }
+
+    @else if type-of($value) == 'number' and unit($value) == 'rem' {
+      $fallback: append($fallback, $value / 1rem * $input-font-size);
+      $regular: append($regular, $value);
+    }
+
+    @else {
+      $fallback: append($fallback, $value);
+      $regular: append($regular, $value);
+    }
+  }
+
+  #{$spacing-type}: $fallback;
+  #{$spacing-type}: $regular;
+}
+
+
+

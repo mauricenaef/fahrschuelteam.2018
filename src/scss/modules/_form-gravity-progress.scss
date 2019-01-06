@@ -1,0 +1,88 @@
+.gf_progressbar_title {
+	font-size: rem-calc(20);
+	font-weight: 400;
+}
+.gf_progressbar { 
+	@include progress-container;
+	border-radius: 100px;
+	& > .gf_progressbar_percentage { 
+		@include progress-meter; 
+		border-radius: 100px;
+		position: relative;
+		span {
+			display: none;
+		}
+	}
+}
+.gform_wrapper {
+	position: relative;
+	padding: 1rem;
+	margin: -1rem;
+}
+
+
+table {
+	thead {
+		th {
+			font-family: $body-font-family;
+			text-transform: uppercase;
+			font-size: rem-calc(14);
+		}
+	}
+	.gfield_list_10_cell1 {
+		width: 60%;
+	}
+	
+	.gfield_list_icons {
+		padding: .75rem !important;
+		font-size: rem-calc(16);
+	}
+}
+
+.gform_page_fields {
+	padding: 2rem 0;
+}
+.gform_page_footer {
+	.button {
+		margin-bottom: 0;
+	}
+	.gform_previous_button,
+	.gform_next_button {
+		background-color: $secondary-color;
+	}
+	.gform_save_link {
+		float: right;
+		line-height: 3.4;
+		font-family: $body-font-family;
+		text-transform: uppercase;
+		font-size: rem-calc(14);
+		font-weight: 500;
+	}
+}
+
+
+.form_saved_message {
+	border-radius: $global-radius;
+	.resume_form_link {
+		display: block;
+		margin: 1em 0 0;
+	}
+	.form_saved_message_emailform {
+		margin: 1rem -0.8rem;
+		form {
+			margin: 0;
+			display: flex;
+		}
+		input[type="email"] {
+			flex: 1;
+			border-radius: 100px 0 0 100px;
+		}
+		input[type="submit"] {
+			color: $white;
+			background: $primary-color;
+			border: none;
+			border-radius: 0 100px 100px 0;
+
+		}
+	}
+}

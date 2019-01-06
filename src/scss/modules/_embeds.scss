@@ -1,0 +1,26 @@
+.gallery {
+    padding: 1rem 0;
+    &.thumbnail-gallery {
+        display: flex;
+
+        .item {
+            margin: .5em;
+            display: block;
+            border-radius: 3px;
+            transition: all .2s ease-in-out;
+            &:hover, &:focus {
+                transform: scale(1.1);
+            }
+            img {
+                border-radius: 3px;
+            }
+        }
+
+    }
+    &.small {
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+}

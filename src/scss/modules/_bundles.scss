@@ -1,0 +1,39 @@
+.bundles-wrapper {
+    background: url('images/race-bg.svg') no-repeat;
+    background-size: 100%;
+    background-position: bottom;
+    padding-top: 8rem;
+}
+
+.bundles-section,
+.angebot-section {
+    padding-top: 3rem;
+    @include breakpoint(medium up) {
+        padding-top: 10rem;
+    }
+    padding-bottom: 3rem;
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        border-radius: 8px;
+        margin-top: -1rem;
+        margin-bottom: 2rem;
+        @include breakpoint(medium up) {
+            margin-left: 1rem;
+        }
+    }
+}
+
+.card-details {
+    flex: 1;    
+}
+.price {
+    font-weight: 700;
+    font-size: rem-calc(21);
+    margin-bottom: 0;
+}
+.price-savings {
+    color: get-color(secondary);
+    font-size: rem-calc(12);
+}

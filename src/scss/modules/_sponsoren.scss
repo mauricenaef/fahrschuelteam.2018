@@ -1,0 +1,36 @@
+.sponsoren-section {
+    background: $medium-gray;
+    color: $dark-gray;
+    padding: 2rem 0 4rem;
+}
+.sponsoren-intro-title {
+    font-size: rem-calc(14);
+    font-weight: 400;
+    margin-bottom: 2em;
+}
+.sponsoren-list {
+    margin: 0;
+    li {
+        padding: 0 2rem !important;
+        @include breakpoint(small only) {
+            margin-bottom: 3rem;
+        }
+        a {
+            img {
+                filter: gray; /* IE6-9 */
+			    -webkit-filter: grayscale(0); /* Google Chrome, Safari 6+ & Opera 15+ */
+                filter: grayscale(0); /* Microsoft Edge and Firefox 35+ */
+                max-height: 4rem;
+            }
+            display: block;
+            &:hover, &:focus {
+                //opacity: .6;
+                img {
+                    filter:none; /* IE6-9 */
+			        -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+                    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+                }
+            }
+        }
+    }
+}

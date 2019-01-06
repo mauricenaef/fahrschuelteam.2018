@@ -1,0 +1,13 @@
+input[type="submit"] {
+	@include button;	
+}
+
+.button-group {
+	.button {
+		margin-right: -1px;
+	}
+	.tiny {
+		font-size: .7em;
+		font-weight: 800;
+	}
+}

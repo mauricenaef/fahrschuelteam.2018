@@ -1,0 +1,70 @@
+.shadow {
+    box-shadow: 2px 0 100px rgba($black, .2);
+}
+
+.shadow-small {
+    box-shadow: 2px 0 25px rgba($black, .4);
+}
+
+.avatar {
+    border-radius: 500px;
+}
+
+.section-padding {
+    padding: 3rem 0;
+}
+
+.element-padding {
+    padding: 2rem;
+}
+
+.monster-padding {
+    padding: 2rem 0;
+    @include breakpoint(medium up) {
+        padding: 6rem 0;
+    }
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+.no-bottom-padding {
+    padding-bottom: 0 !important;
+}
+
+.bg-medium {
+    background-color: $medium-gray;
+}
+.bg-light {
+    background-color: $light-gray;
+}
+.bg-lighter {
+    background-color: $lighter-gray;
+}
+.bg-dark {
+    background-color: $dark-gray;
+}
+.bg-super-dark {
+    background-color: darken($dark-gray, 10%);
+}
+
+.center-align {
+    display: flex;
+    justify-content: center;
+}
+
+.small-align-center-middle {
+    @include breakpoint(small only) {
+        justify-content: center !important;
+    }    
+}
+
+@include breakpoint(medium up) {
+    .medium-offset-pull-1 {
+        margin-right: 8.33333%;
+    }
+}
+
+.responsive-embed {
+    overflow: scroll;
+}

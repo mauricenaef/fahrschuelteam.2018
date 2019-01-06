@@ -1,0 +1,91 @@
+.site-header {
+	@include breakpoint(medium up) {
+		padding: 1rem 0 .5rem;
+	}
+	&.site-header-hero {
+		height: 40vh;
+		@include breakpoint(medium up) {
+			height: 70vh;
+		}
+		background-size: cover;
+		background-position: center center;
+		position: relative;
+	}
+	.header-nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		@include breakpoint(small only) {
+			flex: 1 0 auto;
+			width: 100%;
+		}
+		@include breakpoint(medium up) {
+			align-items: center;
+			justify-content: flex-start;
+		}
+	}
+
+	.site-branding {
+		z-index: 100;
+		max-width: 13rem;
+	}
+
+	@include breakpoint(small only) {
+		.nav-trigger {
+			position: absolute;
+			top: .5rem;
+			right: 1rem;
+		}
+	}
+}
+
+.call-us {
+	z-index: 100;
+	position: relative;
+	color: get-color('primary_2');
+	display: flex;
+	align-items: center;
+	@include breakpoint(small only) {
+		margin-top: 2rem;
+		flex-direction: column;
+		.site-header-hero & {
+			margin-top: 15vh;
+		}
+		
+		.menu-open & {
+			z-index: -1;
+		}
+	}
+	@include breakpoint(medium up) {
+		padding: 0 1rem;
+		margin-right: .5rem;
+	}
+	@include breakpoint(large up) {
+		padding: 0 1.5rem;
+		margin-right: 1rem;
+	}
+	> div {
+		padding-left: 1em;
+	}
+	&-avatar {
+		width: 40px;
+		height: 40px;
+	}
+	&-name {
+		font-size: rem-calc(16);
+		font-weight: 400;
+		margin-bottom: 0;
+	}
+	&-phone {
+		font-family: $header-font-family;
+		font-weight: 700;
+		font-size: rem-calc(21);
+		color: darken(get-color('primary'), 10%);
+		word-spacing: 2px;
+		margin-top: -4px;
+		display: block;
+		&:hover, &:focus {
+			opacity: .8;
+		}
+	}
+}

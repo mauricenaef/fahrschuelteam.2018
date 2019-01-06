@@ -1,0 +1,31 @@
+.column-thumbnail {
+  width: 10% !important; }
+
+.column-title {
+  width: 20%; }
+
+.column-thumbnail img {
+  width: 60px;
+  height: 60px; }
+
+.column-rating {
+  width: 20% !important; }
+
+.column-date {
+  width: 20%; }
+
+.column-date abbr {
+  padding-right: .5em; }
+
+.rating span.rating:before {
+  content: "\f155";
+  font-size: 14px;
+  margin: 2px 3px;
+  font-family: dashicons;
+  color: gold; }
+
+.crb-thumbnail-column img {
+  max-width: 100%;
+  height: auto; }
+
+/*# sourceMappingURL=../fahrschuelteam.2018/admin.css.map */

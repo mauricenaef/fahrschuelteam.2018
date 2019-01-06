@@ -1,0 +1,12 @@
+.page-template-page-ueber-uns {
+    .intro-container {
+        background-size: cover;
+        background-position: center top;
+        align-items: flex-end;
+    }
+    .intro {
+        &:after {
+            opacity: 0;
+        }
+    }
+}

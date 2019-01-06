@@ -1,0 +1,45 @@
+.testimonial-card {
+    margin-top: 3rem;
+    @include breakpoint(medium up) {
+        margin-top: -5rem;
+    }
+    .card-header {
+        background-color: $primary-color;
+        color: $white;
+    }
+
+    .card-content {
+        margin-top: -1rem;
+        border-radius: 8px 8px 0 0;
+        .item {
+            padding: 0 2rem 1rem;
+        }
+        .wp-post-image {
+            margin: 1rem auto 2rem;
+            border: 4px solid $light-gray;
+        }
+        p {
+            font-size: rem-calc(14);
+        }
+        .title {
+            color: $medium-gray;
+        }
+        .subline {
+            font-size: rem-calc(12);
+            color: $light-gray;
+            margin-bottom: .75em;
+        }
+        .rating {
+            color: gold;
+            padding: 0 .3em 0 0;
+        }
+    }
+}
+
+.faq-card {
+    .card-header {
+        background-color: $secondary-color;
+        color: $white;
+    }
+}
+

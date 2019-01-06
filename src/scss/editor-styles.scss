@@ -1,0 +1,22 @@
+@import 'settings';
+@import 'mixins';
+
+@import '../../node_modules/foundation-sites/scss/foundation';
+@include foundation-global-styles;
+@include foundation-typography;
+@include foundation-button;
+
+@import 'modules/typography';
+@import 'modules/buttons';
+
+html {
+	margin: 1.5rem;
+}
+
+body {
+	background: #fff !important;
+}
+
+a {
+	color: darken($primary-color, 0%);
+}

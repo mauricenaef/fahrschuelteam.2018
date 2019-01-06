@@ -1,0 +1,37 @@
+.event-item {
+	min-height: 5rem;
+	position: relative;
+	overflow: hidden;
+	.card {
+		margin-bottom: 0;
+
+	}
+	.card-section {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background: rgba($black, .5);
+	}
+	.card-details {
+		color: $white;
+		.event-title {
+			margin: 0;
+		}
+		date {
+			font-weight: 600;
+			font-size: rem-calc(12);
+			margin-bottom: -.5em;
+			display: block;
+		}
+	}
+	.card-actions {
+		.button {
+			margin: 0;
+			text-transform: uppercase;
+			font-weight: 700;
+		}
+	}
+}

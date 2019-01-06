@@ -1,0 +1,213 @@
+.search-form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 1rem;
+	> input, label, label input {
+		margin: 0 !important;
+		height: rem-calc(40);
+	}
+	.search-submit {
+		flex: 1;
+	}
+}
+
+.newsletter-form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 1rem;
+	> input, label, label input {
+		margin: 0 !important;
+		height: rem-calc(25);
+		font-size: rem-calc(14);
+	}
+	.button {
+		flex: 1;
+	}
+}
+
+.anmeldung {
+	position: relative;
+	.gform_wrapper {
+		position: unset;
+	}
+}
+
+.fahrlehrer {
+	.ginput_container_radio ul {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-wrap: wrap;
+		li {
+			flex: 1 50%;
+			text-align: center;
+			margin: 1.5rem 0;
+			&:last-of-type {
+				flex: 0 1 50%;
+				flex-grow: 0;
+			}
+		}
+		label {
+			margin: 0;
+			width: 100%;
+			font-size: rem-calc(15);
+			font-weight: 600;
+			&:before {
+				content: "";
+				display: block;
+				width: 10rem;
+				height: 10rem;
+				margin: 0 auto 1rem;
+				border-radius: 100px;
+				border: 5px solid $light-gray;
+			}
+		}
+		input[type="radio"]:checked {
+			+ label {
+				color: get-color(primary);
+				&:before {
+					border-color:get-color(primary);
+				}
+			}
+		}
+	}
+	
+	input[type="radio"] {
+		visibility: hidden;
+		display: none;
+	}
+	input[value="patric"] {
+		+ label {
+			&:before {
+				background: url('images/patric.jpg') no-repeat;
+				background-size: cover;
+			}
+		}
+	}
+	input[value="thomas"] {
+		+ label {
+			&:before {
+				background: url('images/thomas.jpg') no-repeat;
+				background-size: cover;
+			}
+		}
+	}
+	input[value="egal"] {
+		+ label {
+			&:before {
+				background: url('images/egal.jpg') no-repeat;
+				background-size: cover;
+			}
+		}
+	}
+}
+
+
+.loading-overlay {
+	position: fixed;
+	visibility: hidden;
+	opacity: 0;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(darken($primary-color, 10%), .9);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: $global-radius;
+	transition: all 0s 250ms;
+	.loading & {
+		visibility: visible;
+		opacity: 1;
+		transition: all 0s 0s;
+		transition-timing-function: cubic-bezier(.86,.01,.77,.78);
+	}
+	svg {
+		fill: darken($primary-color, 10%);
+		fill: $white;
+		width: 3rem;
+		height: 3rem;
+	}
+}
+label {
+	color: lighten($black, 55%);
+	font-weight: 500;
+	font-size: rem-calc(14);
+	//font-family: $font-family-sans-serif;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="password"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="tel"],
+input[type="file"],
+textarea,
+select {
+	//@include form-spacing(padding, $form-space);
+	//background: $input-bg;
+	color: $input-color;
+	border: 1px solid $input-border;
+	line-height: normal;
+	display: block;
+	width: 100%;
+	box-shadow: $input-shadow;
+	transition: $input-transition;
+	//font-family: $font-family-sans-serif;
+	border-radius: $global-radius;
+	font-size: 1rem;
+	padding: 0.7rem 0.7rem 0.6rem 0.7rem;
+	min-height: 2.9rem;
+	&:focus {
+		border-color: $input-border-focus;
+		outline: none;
+	}
+}
+
+input[type="file"] {
+	&:hover { cursor: pointer; }
+}
+
+input[type="search"] {
+	width: auto;
+	display: inline-block;
+}
+
+select {
+	//height: ceil($form-line-height * 1.33);
+}
+
+select[multiple],
+select[size] {
+	height: auto;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	width: auto;
+	display: inline-block;
+}
+
+fieldset {
+	padding: 0;
+	margin: 0;
+}
+
+// WebKit-style focus
+// @link https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/mixins/_tab-focus.scss [props]
+input[type="checkbox"],
+input[type="radio"],
+input[type="reset"]
+{
+	&:focus {
+		outline: thin dotted;
+		outline: 5px auto -webkit-focus-ring-color;
+		outline-offset: -2px;
+	}
+}
