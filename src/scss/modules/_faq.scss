@@ -41,8 +41,9 @@
     padding: 0 2.5rem 0 .5rem;
     font-size: rem-calc(14);
     position: relative;
+    opacity: .8;
     &:hover, &:focus {
-        opacity: .7;
+        opacity: .5;
     }
     &:after {
         content: "+";
@@ -52,6 +53,7 @@
         font-size: rem-calc(18);
     }
     &.open {
+        opacity: 1;
         &:after {
             content: "-"
         }
