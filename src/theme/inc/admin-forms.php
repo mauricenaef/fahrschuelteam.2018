@@ -196,8 +196,8 @@ function add_merge_tags($form) { ?>
 
     function add_merge_tags(mergeTags, elementId, hideAllFields, excludeFieldTypes, isPrepop, option) {
         mergeTags["custom"].tags.push({
-            tag: '{Site_Name}',
-            label: 'Site Name'
+            tag: '{Beschreibung}',
+            label: 'Beschreibung'
         });
         return mergeTags;
 	} </script> 
@@ -208,11 +208,12 @@ function add_merge_tags($form) { ?>
 
 add_filter('gform_replace_merge_tags', 'replace_site_name', 10, 7);
 function replace_site_name($text, $form, $entry, $url_encode, $esc_html, $nl2br, $format) {
-    $custom_merge_tag = '{Site_Name}';
+    $custom_merge_tag = '{Beschreibung}';
     if (strpos($text, $custom_merge_tag) === false) {
         return $text;
-    }
-    $siteName = get_bloginfo('name');
+	}
+	//$form = RGFormsModel::get_form_meta( $form_id );
+    $siteName = wpautop($form['description']);
     $text = str_replace($custom_merge_tag, $siteName, $text);
     return $text;
 }
