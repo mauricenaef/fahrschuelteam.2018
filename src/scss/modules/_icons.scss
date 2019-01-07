@@ -26,3 +26,9 @@
   }
 }
 
+.section-icon {
+  @include breakpoint(small only) {
+    margin-top: 2rem;
+  }
+}
+

@@ -40,3 +40,13 @@
     }
 }
 
+table {
+    @include breakpoint(small only) {
+        margin-bottom: 0;
+        overflow: hidden;
+        overflow-x: scroll;
+        display: block;
+        white-space: nowrap;
+    }
+}
+

@@ -1288,6 +1288,14 @@ a.button:hover, a.button:focus {
     .entry-content ol ol li {
       font-weight: 300; }
 
+@media screen and (max-width: 48.0625em) {
+  table {
+    margin-bottom: 0;
+    overflow: hidden;
+    overflow-x: scroll;
+    display: block;
+    white-space: nowrap; } }
+
 input[type="submit"] {
   display: inline-block;
   vertical-align: middle;
