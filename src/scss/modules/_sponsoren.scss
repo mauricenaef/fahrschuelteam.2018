@@ -12,6 +12,7 @@
     margin: 0;
     li {
         padding: 0 2rem !important;
+        margin: 2rem 0;
         @include breakpoint(small only) {
             margin-bottom: 3rem;
         }
