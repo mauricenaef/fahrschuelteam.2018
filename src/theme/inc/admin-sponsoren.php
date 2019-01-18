@@ -16,6 +16,7 @@ function fahrschuelteam_sponsoren() {
 				foreach ($data as $entry) {
 					
 					$url = $entry['url'];
+					$host = parse_url($url);
 					$logo = $entry['logo'];
 					$image_url = wp_get_attachment_image_url( $logo, 'full' );
 
@@ -23,7 +24,7 @@ function fahrschuelteam_sponsoren() {
 					
 						echo '<li class="sponsoren-list-item cell">';
 	
-						echo '<a href="' . $url . '" target="_blank" rel="noreferrer" class="sponsoren-link" title="Logo"><img src="' . $image_url . '" class="sponsoren-logo" alt="Logo von '. parse_url($url) .'" /></a>';
+						echo '<a href="' . $url . '" target="_blank" rel="noreferrer" class="sponsoren-link" title="Logo"><img src="' . $image_url . '" class="sponsoren-logo" alt="Logo von '. $host['host'] .'" /></a>';
 	
 						echo '</li>';
 	
