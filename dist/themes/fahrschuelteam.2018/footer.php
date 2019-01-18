@@ -39,7 +39,7 @@
 						<img src="<?php bloginfo('template_url'); ?>/images/logo.svg" alt="<?php bloginfo( 'name' ); ?>">
 					</a>
 					<p class="copyright">© <?php bloginfo( 'name' ); ?> - <?php echo date('Y'); ?></p>
-					<a href="https://mauricenaef.ch" class="credits-logo" title="Webdesign by mauricenaef.ch" target="_blank"><img src="https://mauricenaef.ch/externaldata/logo_icon.svg" width="24" height="24" title="Web Design by MAURICE NAEF webdesign" alt="Web Design by MAURICE NAEF webdesign" /></a>
+					<a href="https://mauricenaef.ch" rel="noreferrer" class="credits-logo" title="Webdesign by mauricenaef.ch" target="_blank"><img src="https://mauricenaef.ch/externaldata/logo_icon.svg" width="24" height="24" title="Web Design by MAURICE NAEF webdesign" alt="Web Design by MAURICE NAEF webdesign" /></a>
 				</div>
 			</div>
 

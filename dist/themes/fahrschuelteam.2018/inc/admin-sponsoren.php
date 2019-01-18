@@ -23,7 +23,7 @@ function fahrschuelteam_sponsoren() {
 					
 						echo '<li class="sponsoren-list-item cell">';
 	
-						echo '<a href="' . $url . '" target="_blank" class="sponsoren-link" title="Logo"><img src="' . $image_url . '" class="sponsoren-logo" /></a>';
+						echo '<a href="' . $url . '" target="_blank" rel="noreferrer" class="sponsoren-link" title="Logo"><img src="' . $image_url . '" class="sponsoren-logo" alt="Logo von '. parse_url($url) .'" /></a>';
 	
 						echo '</li>';
 	
