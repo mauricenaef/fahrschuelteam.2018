@@ -15,11 +15,12 @@ function angebot_forms( $type ) {
         <section class="section-padding bg-light">
 		<div class="angebot-liste-wrap grid-container section-padding">	
             <h3>Buche direkt unsere Angebote</h3>			
-			<ul class="angebot-liste no-bullet">
+			<ul class="angebot-liste no-bullet" id="sort_list">
                 <li class="grid-x medium-8 align-justify align-middle liste-title">
                     <div class="small-3 medium-3 cell"><strong>Kurs</strong></div>
                     <div class="small-8 medium-3 cell"><strong>Datum</strong></div>
-                    <div class="small-12 medium-5 cell"><strong>Plätze</strong></div>
+					<div class="small-6 medium-2 cell"><strong>Plätze</strong></div>
+					<div class="small-6 medium-3 cell"></div>
                 </li>
 		<?php
 
@@ -30,23 +31,24 @@ function angebot_forms( $type ) {
 				$form_id = $form->id;
 				$title = $form->title; 											// VKU 0000
 				$status = $form->is_active;										// Status
-				$time = custom_form_meta( $form_id, 'tf_form_time' ); 			// day
 				$online = custom_form_meta( $form_id, 'tf_form_type' ); 		// online
-				$subtitle = custom_form_meta( $form_id, 'tf_form_subtitle' );	// Di - Fr, 8. - 11. September 2015
+				$time = custom_form_meta( $form_id, 'tf_form_subtitle' );	// Di - Fr, 8. - 11. September 2015
+				$date = strtotime($time);
 				$entries = entries_left($form_id); 								// Number
 				$plaetze = ($entries == '1') ? 'Platz' : 'Plätze';				// Plätze
+				$today = time();
 
-			if (substr($title, 0, 2) === $type && $status == '1' ) {
+			if ( substr($title, 0, 2) === $type && $status == '1' && $date > ($today - 100000))  {
 
 
 				?>
-				<li class="grid-x medium-8 align-justify align-middle <?php echo ($entries == '0') ? 'fullybooked' : '' ; ?>">
+				<li class="grid-x medium-8 align-justify align-middle <?php echo ($entries == '0') ? 'fullybooked' : '' ; ?>" data-position="<?php echo strtotime($time) ?>">
 					<div class="small-3 medium-3 cell">
 						<div class="item-title"><?php echo $title; ?></div>
 					</div>
 					
 					<div class="small-8 medium-3 cell">
-						<div class="item-description"><?php echo $subtitle; ?></div>
+						<div class="item-description"><?php echo date_i18n( get_option( 'date_format' ), strtotime( $time ) ); ?></div>
 					</div>
 					<div class="small-6 medium-2 cell">
 						<div class="item-remaining"><?php echo $entries . ' ' . $plaetze;  ?></div>
@@ -56,7 +58,7 @@ function angebot_forms( $type ) {
 						if ($entries == '0') {
 							echo '<a href="" class="button small expanded disabled">Ausgebucht</a>';
 						} else {
-							echo '<a href="' . esc_url( add_query_arg( array( 'form' => $form_id, 'date' => $subtitle ) , get_permalink( get_page_by_title( 'Anmeldung' ) ) ) ) .'" class="button">Anmelden</a>';
+							echo '<a href="' . esc_url( add_query_arg( array( 'form' => $form_id, 'date' => $time ) , get_permalink( get_page_by_title( 'Anmeldung' ) ) ) ) .'" class="button">Anmelden</a>';
 						}
 					?>
 						
@@ -66,7 +68,7 @@ function angebot_forms( $type ) {
 			} 
 		}
 		if (substr($title, 0, 3) === $type && $status == '0' ) {
-			echo '<li class="row collapse vku-liste-item"><div class="small-12 columns"><h3 class="item-title">//Momentan Leider keine Kurse</h3></div></li>';
+			echo '<li class="row collapse vku-liste-item"><div class="small-12 columns"><h3 class="item-title">Momentan Leider keine Kurse</h3></div></li>';
 		}
 		?>
 			</ul>
@@ -166,7 +168,7 @@ function thomys_form_subtitle( $settings , $form ) {
 	$custom_settings = '
         <tr>
             <th><label for="tf_form_subtitle">Kurs Datum</label></th>
-            <td><input value="' . rgar($form, 'tf_form_subtitle') . '" name="tf_form_subtitle" class="fieldwidth-3"></td>
+            <td><input value="' . rgar($form, 'tf_form_subtitle') . '" type="date" name="tf_form_subtitle" class="fieldwidth-3"></td>
         </tr>';
 
     $settings['angebot Einstellungen']['tf_form_subtitle'] = $custom_settings ;
