@@ -31,10 +31,13 @@ function fahrschuelteam_intro( $page_id = NULL, $image_only = NULL ) {
                     $home_intro_icon = carbon_get_the_post_meta('home_intro_icon');
                     $home_gallery = carbon_get_the_post_meta('home_gallery');
 
-                    if($home_video) {
+                    if( $home_video && !$home_intro_icon ) {
                         echo '<div class="video-player"><a href="' . $home_video . '" class="intro-video">' . get_svg_icon('play') . '</a></div>';
                         echo '<p class="play-intro"><small>Intro Abspielen</small></p>';
-                    } elseif ($home_intro_icon) {
+                    } elseif ( $home_video && $home_intro_icon ) {
+                        echo '<div class="video-player"><a href="' . $home_video . '" class="intro-video">' . wp_get_attachment_image( $home_intro_icon , 'gallery_item') . '</a></div>';
+                        echo '<p class="play-intro"><small>Intro Abspielen</small></p>';
+                    } elseif ( $home_intro_icon ) {
                         echo '<div class="intro-icon">' . wp_get_attachment_image( $home_intro_icon , 'full') . '</div>';
                     }
 
