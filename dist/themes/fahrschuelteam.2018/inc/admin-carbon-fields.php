@@ -46,6 +46,7 @@ function custom_carbon_fields_about_page() {
                 Field::make( 'rich_text', 'content', 'Inhalt' ),
                 Field::make( 'media_gallery', 'gallery', 'Galerie' ),
                 Field::make( 'text', 'video_url', 'Video URL' ),
+                Field::make( 'image', 'video_thumbnail', 'Video Thumbnail' ),
             )),
     ));
 }
@@ -70,6 +71,7 @@ function custom_carbon_fields_angebot() {
         ->set_help_text( 'Gib die ersten 2 Buchstaben an um entsprechende Kurse anzuzeigen.' ),
         Field::make( 'text', 'angebot_video_url', 'Video URL' )
         ->set_help_text( 'Youtube oder Vimeo Video URL für den Intro Film.' ),
+        Field::make( 'image', 'video_thumbnail', 'Thumbnail Video' ),
         Field::make( 'media_gallery', 'angebot_gallery' )
         ->set_type( array( 'image' ) )
         ->set_duplicates_allowed( false ),

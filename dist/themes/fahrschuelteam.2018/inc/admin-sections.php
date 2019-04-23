@@ -11,6 +11,7 @@ function fahrschuelteam_section( $data ) {
         $title = $item['title'];
         $content = $item['content'];
         $video = $item['video_url'];
+        $thumbnail = $item['video_thumbnail'];
         $gallery = $item['gallery'];
     ?>
     <article class="bg-white monster-padding" >
@@ -27,8 +28,10 @@ function fahrschuelteam_section( $data ) {
                         <?php 
                         echo apply_filters( 'the_content', $content );
                         if($video) {
-                            echo '<div class="video-player"><a href="' . $video . '" class="intro-video">' . get_svg_icon('play') . '</a></div>';
-                            echo '<p class="play-intro"><small>Video Abspielen</small></p>';
+
+                            echo '<div class="video-player"><a href="' . $video . '" class="intro-video">';
+                            echo $thumbnail ? wp_get_attachment_image($thumbnail, 'gallery_item' ) : get_svg_icon('play') ;
+                            echo '</a></div><p class="play-intro"><small>Video Abspielen</small></p>';
                         }
                         if($gallery) {
                             thumbnail_gallery( $gallery, 'small' );

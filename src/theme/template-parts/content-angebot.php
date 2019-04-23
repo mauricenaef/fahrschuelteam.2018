@@ -22,10 +22,12 @@
 				<div class="entry-content">
 					<?php 
 					$video = carbon_get_the_post_meta('angebot_video_url');
+					$thumbnail = carbon_get_the_post_meta('video_thumbnail');
 					the_content(); 
 					if($video) {
-                        echo '<div class="video-player"><a href="' . $video . '" class="intro-video">' . get_svg_icon('play') . '</a></div>';
-                        echo '<p class="play-intro"><small>Intro Abspielen</small></p>';
+						echo '<div class="video-player"><a href="' . $video . '" class="intro-video">';
+						echo $thumbnail ? wp_get_attachment_image($thumbnail, 'gallery_item' ) : get_svg_icon('play') ;
+                        echo '</a></div><p class="play-intro"><small>Intro Abspielen</small></p>';
                     }
 					?>
 				</div><!-- .entry-content -->
